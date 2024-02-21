@@ -1,4 +1,5 @@
-import Package2Icon from "../icons/Package";
+import Link from "next/link";
+import Package2Icon from "./icons/Package";
 
 export default function Sidebar() {
   const packages = [
@@ -10,7 +11,7 @@ export default function Sidebar() {
   return (
     <div
       id="sidebar"
-      className="max-w-sm w-full border-r border-b border-slate-300 h-screen bg-base-300"
+      className="max-w-xs w-full border-r border-b border-slate-300 h-screen bg-base-300"
     >
       <div
         className="flex items-center justify-center
@@ -26,7 +27,7 @@ export default function Sidebar() {
               key={i}
               className="flex rounded-lg items-center p-2 text-xl justify-between active:bg-base-100 focus:bg-base-100 hover:bg-base-100 hover:cursor-pointer"
             >
-              <a href={link}>{label}</a>
+              <Link href={link}>{label}</Link>
               <div className="badge badge-info badge-lg">{count}</div>
             </li>
           ))}

@@ -1,8 +1,8 @@
-import Sidebar from "./components/Sidebar";
-import PlusIcon from "./icons/PlusIcon";
-import Trash from "./icons/Trash";
+import Sidebar from "../components/Sidebar";
+import PlusIcon from "../components/icons/PlusIcon";
+import Search from "../components/icons/Search";
 
-function App() {
+export default function Home() {
   const snippets = [
     {
       titel: "Responsice Tabel",
@@ -31,45 +31,28 @@ function App() {
       <div className="w-full">
         <div
           className="flex items-center
-        p-2 pl-4  text-2xl border-b border-slate-300"
+          p-2 pl-4  text-2xl border-b border-slate-300"
         >
-          Snippets
-          <button type="button" className="ml-4 btn btn-md btn-circle">
-            <PlusIcon className="w-6 h-6" />
+          <div
+            id="Search"
+            className="border border-slate-300 rounded-md p-2 flex items-center bg-base-300"
+          >
+            <Search className="w-6 h-6 mr-2" />
+            <input
+              type="search"
+              placeholder="Search..."
+              className="bg-base-300"
+            />
+          </div>
+          <button type="button" className="btn-primary ml-4 btn btn-md">
+            <PlusIcon className="w-6 h-6" /> New
           </button>
         </div>
         <div className="p-10 grid grid-cols-2 gap-4">
           {snippets.map(({ titel, description, tags }, i) => (
             <div className="card w-full bg-base-300 shadow-xl group" key={i}>
               <div className="card-body group-item">
-                <div className="flex justify-between">
-                  <h2 className="card-title">{titel}</h2>
-                  <button
-                    onClick={() =>
-                      document
-                        .getElementById(`delete-snippet-${titel}`)
-                        .showModal()
-                    }
-                    type="submit"
-                    className="btn btn-sm btn-error btn-outline invisible group-hover:visible hover:cursor-pointer"
-                  >
-                    <Trash className="h-4 w-6" />
-                  </button>
-                  <dialog id={`delete-snippet-${titel}`} className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">Attention!</h3>
-                      <p className="py-4">You are about to delete a snippet!</p>
-                      <p className="py-4">Are you sure you want to continue?</p>
-                      <div className="modal-action">
-                        <form method="dialog" className="space-x-2">
-                          {/* if there is a button in form, it will close the modal */}
-                          <button className="btn">Cancel</button>
-                          <button className="btn btn-error">Delete</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>
-                </div>
+                <h2 className="card-title">{titel}</h2>
                 <p>{description}</p>
                 <div className="flex">
                   <div className="card-actions items-center pt-4 w-[50%]">
@@ -102,5 +85,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

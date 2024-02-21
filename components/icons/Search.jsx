@@ -1,5 +1,4 @@
-// eslint-disable-next-line react/prop-types
-export default function CodeIcon({ className }) {
+export default function Search({ className }) {
   return (
     <svg
       className={className}
@@ -13,8 +12,8 @@ export default function CodeIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
     </svg>
   );
 }
